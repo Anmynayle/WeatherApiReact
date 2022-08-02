@@ -28,7 +28,6 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           setTemperture(temp)
           setLoading(false)
 
-          
           if (res.data.weather[0].description === "scattered clouds") {
             setUrlImg("scatterdclouds")
           }
@@ -73,7 +72,7 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
 
   }
   if (loading) {
-    return <Loader />
+    return <Loader/>
   } else {
     return (
       <div className="card">
