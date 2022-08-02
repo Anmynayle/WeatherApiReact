@@ -9,6 +9,7 @@ function App() {
  const [coords, setCoords] = useState()
  const [urlImg, setUrlImg] = useState()
 
+
  useEffect(()=>{
 
   const success = pos =>{
@@ -23,11 +24,10 @@ function App() {
   navigator.geolocation.getCurrentPosition(success)
 
  },[])
- console.log(urlImg)
 
   return (
-    <div  className="App"> 
-      <Card__Weather coords={coords}/>
+    <div  className={`App  ${urlImg}`} > 
+      <Card__Weather coords={coords} urlImg={urlImg} setUrlImg={setUrlImg}/>
     </div>
     
   )

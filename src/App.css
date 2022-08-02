@@ -5,7 +5,29 @@
 }
 #root{
   --color-font--:rgb(118, 183, 226);
-  --color--bg--:rgba(91, 231, 224, 0.1);
+  --color--bg--:rgba(0, 0, 9, 0.3);
+}
+
+.overcardclouds{
+   background-image: url('./assets/img/overclouds.jpg');  
+}
+.fewclouds{
+  background-image: url('./assets/img/fewclouds.jpg');  
+}
+.brokenclouds{
+  background-image: url('./assets/img/broken-clouds.jpg');  
+}
+.showerrain{
+  background-image: url('./assets/img/showrain.jpg');  
+}
+.rain{
+  background-image: url('./assets/img/rain.jpg');  
+}
+.thunderstorm{
+  background-image: url('./assets/img/catatumbo.jpg');  
+}
+.snow{
+  background-image: url('./assets/img/snow.jpg');  
 }
 
 .load{
@@ -28,19 +50,19 @@
 .App{
     width: 100%;
     height: 100vh;
-    background-image: url('https://www.todofondos.net/wp-content/uploads/1920x1200-Por-ENCIMA-DE-LAS-NUBES-FONDO-DE-PANTALLA-HD-1024x640.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;  
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .card{
     width: 800px;
     border: solid 1px black;
     border-radius: 15px;
-    box-shadow: 5px 5px 40px 5px rgba(140, 111, 252, 0.5);
+    box-shadow: 5px 5px 40px 5px white;
     background-color: var(--color--bg--);
     display: flex;
     flex-wrap: wrap;
