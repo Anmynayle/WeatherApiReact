@@ -29,6 +29,9 @@
 .snow{
   background-image: url('./assets/img/snow.jpg');  
 }
+.scatterd clouds{
+  background-image: url('./assets/img/scatteredcloud.jpg');  
+}
 
 .load{
  height: 300px;
