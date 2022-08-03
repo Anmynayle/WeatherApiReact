@@ -27,40 +27,45 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           }
           setTemperture(temp)
           setLoading(false)
-
-          if (res.data.weather[0].description === "scattered clouds") {
+               
+          if (res.data.weather[0].description === "scattered clouds") 
             setUrlImg("scatterdclouds")
-          }
+          
 
-          if (res.data.weather[0].description === "overcars clouds") {
+          else if(res.data.weather[0].description === "overcast clouds") 
+            setUrlImg("overcarsclouds")
+          
+
+          else if (res.data.weather[0].description === "clear sky") 
             setUrlImg("overcardclouds")
-          }
+          
 
-          if (res.data.weather[0].description === "clear sky") {
-            setUrlImg("overcardclouds")
-          }
-
-          if (res.data.weather[0].description === "few clouds") {
+          else if (res.data.weather[0].description === "few clouds") 
             setUrlImg("fewclouds")
-          }
-          if (res.data.weather[0].description === "broken clouds") {
+          
+          else if (res.data.weather[0].description === "broken clouds") 
             setUrlImg("brokenclouds")
-          }
+          
 
-          if (res.data.weather[0].description === "shower rain") {
+          else if (res.data.weather[0].description === "shower rain") 
             setUrlImg("showerrain")
-          }
+          
 
-          if (res.data.weather[0].description === "rain") {
+          else if (res.data.weather[0].description === "rain") 
             setUrlImg("rain")
-          }
-          if (res.data.weather[0].description === "thunderstorm") {
+          
+          else if (res.data.weather[0].description === "thunderstorm") 
             setUrlImg("thunderstorm")
-          }
+          
 
-          if (res.data.weather[0].description === "snow") {
+          else if (res.data.weather[0].description === "snow") 
             setUrlImg("snow")
+          
+          else {
+            setUrlImg("default")
           }
+         
+
         })
         .catch(err => console.log(err))
     }
@@ -75,6 +80,7 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
     return <Loader/>
   } else {
     return (
+      
       <div className="card">
         <div className="card__body">
           <div className="card__info">
@@ -96,6 +102,7 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           </div>
         </div>
       </div>
+     
     )
   }
 }

@@ -8,7 +8,8 @@
   --color--bg--:rgba(0, 0, 9, 0.3);
 }
 
-.overcardclouds{
+
+.overcarsclouds{
    background-image: url('./assets/img/overclouds.jpg');  
 }
 .fewclouds{
@@ -32,6 +33,9 @@
 .scatterdclouds{
   background-image: url('./assets/img/scatteredcloud.jpg');  
 }
+.default{
+  background-image:url('./assets/img/fondocarga.jpg');
+}
 
 .load{
  height: 300px;
@@ -46,7 +50,9 @@
 .loading{
   height: 100vh;
   width: 100%;
-  background-image: url(./assets/img/fondocarga.jpg);
+  background-image: url(./assets/img/fondoclima.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
