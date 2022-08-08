@@ -30,7 +30,7 @@ const Card__Weather = ({ coords, setUrlImg }) => {
   // });
 
 
-    console.log(country)
+  console.log(country)
   useEffect(() => {
     if (coords?.lat) {
       const APIkey = '33362d39e5912619c9553d5b0a209cab'
@@ -153,7 +153,7 @@ const Card__Weather = ({ coords, setUrlImg }) => {
     return (
       <div className='container_search'>
       <div className="search">
-        <input type="text" id='search' className='input_search' placeholder='Conuntry' onSubmit={change}/>
+        <input type="text" id='search' className='input_search' placeholder='Enter City' onSubmit={change}/>
         <button onClick={change} className='btn'><i class='bx bx-search-alt'></i></button>
       </div>
       <div className="card">
