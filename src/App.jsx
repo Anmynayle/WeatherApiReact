@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div  className={`App  ${urlImg}`} > 
-      <Card__Weather coords={coords} urlImg={urlImg} setUrlImg={setUrlImg}/>
+      <Card__Weather coords={coords} setUrlImg={setUrlImg}/>
     </div>
     
   )

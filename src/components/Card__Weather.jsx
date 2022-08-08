@@ -5,15 +5,32 @@ import Loader from './Loader'
 
 
 
-const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
+const Card__Weather = ({ coords, setUrlImg }) => {
   //console.log(coords.lat)
   //console.log(coords.lon)
   const [weather, setWeather] = useState()
   const [temperture, setTemperture] = useState()
   const [isCelsius, setIsCelsius] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [country, setCountry] = useState('Valencia')
+
+  const change = () => {
+    const search = document.getElementById('search').value
+      return setCountry(search)
+  } 
+  // document.getElementById('search')
+  // .addEventListener('keyup', function(event) {
+  //     if (event.code === 'Enter')
+  //     {
+  //         event.preventDefault();
+  //         const search = document.getElementById('search').value
+  //         return setCountry(search)
+  //         // document.querySelector('.btn').submit();
+  //     }
+  // });
 
 
+    console.log(country)
   useEffect(() => {
     if (coords?.lat) {
       const APIkey = '33362d39e5912619c9553d5b0a209cab'
@@ -37,7 +54,7 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           
 
           else if (res.data.weather[0].description === "clear sky") 
-            setUrlImg("overcardclouds")
+            setUrlImg("clearsky")
           
 
           else if (res.data.weather[0].description === "few clouds") 
@@ -64,12 +81,66 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           else {
             setUrlImg("default")
           }
-         
-
         })
         .catch(err => console.log(err))
     }
   }, [coords?.lon, coords?.lat])
+
+
+  useEffect(() => {
+    if (coords?.lat) {
+      const APIkey = '33362d39e5912619c9553d5b0a209cab'
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${APIkey}`
+      axios.get(URL)
+        .then(res => {
+          setWeather(res.data)
+          const temp = {
+            celsius: `${(res.data.main.temp - 273.15).toFixed(2)} °C`,
+            farenheit: `${((res.data.main.temp - 273.15) * 9 / 5 + 32).toFixed(2)} °F`
+          }
+          setTemperture(temp)
+          setLoading(false)
+               
+          if (res.data.weather[0].description === "scattered clouds") 
+            setUrlImg("scatterdclouds")
+          
+
+          else if(res.data.weather[0].description === "overcast clouds") 
+            setUrlImg("overcarsclouds")
+          
+
+          else if (res.data.weather[0].description === "clear sky") 
+            setUrlImg("clearsky")
+          
+
+          else if (res.data.weather[0].description === "few clouds") 
+            setUrlImg("fewclouds")
+          
+          else if (res.data.weather[0].description === "broken clouds") 
+            setUrlImg("brokenclouds")
+          
+
+          else if (res.data.weather[0].description === "shower rain") 
+            setUrlImg("showerrain")
+          
+
+          else if (res.data.weather[0].description === "rain") 
+            setUrlImg("rain")
+          
+          else if (res.data.weather[0].description === "thunderstorm") 
+            setUrlImg("thunderstorm")
+          
+
+          else if (res.data.weather[0].description === "snow") 
+            setUrlImg("snow")
+          
+          else {
+            setUrlImg("default")
+          }
+        })
+        .catch(err => console.log(err))
+    }
+  }, [country])
 
 
   const handleClick = () => {
@@ -80,7 +151,11 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
     return <Loader/>
   } else {
     return (
-      
+      <div className='container_search'>
+      <div className="search">
+        <input type="text" id='search' className='input_search' placeholder='Conuntry' onSubmit={change}/>
+        <button onClick={change} className='btn'><i class='bx bx-search-alt'></i></button>
+      </div>
       <div className="card">
         <div className="card__body">
           <div className="card__info">
@@ -102,7 +177,7 @@ const Card__Weather = ({ coords, urlImg, setUrlImg }) => {
           </div>
         </div>
       </div>
-     
+      </div>
     )
   }
 }
